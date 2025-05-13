@@ -23,7 +23,7 @@ A template voice agent for [Pipecat Cloud](https://www.daily.co/products/pipecat
 Clone the starter project from GitHub:
 
 ```bash
-git clone https://github.com/daily-co/pipecat-cloud-starter
+git clone https://github.com/lmnt-com/pipecat-cloud-starter.git
 cd pipecat-cloud-starter
 ```
 
@@ -53,7 +53,7 @@ pcc auth login
 This starter requires the following API keys:
 
 - **OpenAI API Key**: Get from [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-- **Cartesia API Key**: Get from [play.cartesia.ai/keys](https://play.cartesia.ai/keys)
+- **LMNT API Key**: Get from [app.lmnt.com/account](https://app.lmnt.com/account)
 - **Daily API Key**: Automatically provided through your Pipecat Cloud account
 
 ### 5. Configure to run locally (optional)
@@ -62,7 +62,7 @@ You can test your agent locally before deploying to Pipecat Cloud:
 
 ```bash
 # Set environment variables with your API keys
-export CARTESIA_API_KEY="your_cartesia_key"
+export LMNT_API_KEY="your_lmnt_key"
 export DAILY_API_KEY="your_daily_key"
 export OPENAI_API_KEY="your_openai_key"
 ```
@@ -98,14 +98,14 @@ docker push your-username/my-first-agent:0.1
 
 ### 2. Create a secret set for your API keys
 
-The starter project requires API keys for OpenAI and Cartesia:
+The starter project requires API keys for OpenAI and LMNT:
 
 ```bash
 # Copy the example env file
 cp env.example .env
 
 # Edit .env to add your API keys:
-# CARTESIA_API_KEY=your_cartesia_key
+# LMNT_API_KEY=your_lmnt_key
 # OPENAI_API_KEY=your_openai_key
 
 # Create a secret set from your .env file
@@ -116,7 +116,7 @@ Alternatively, you can create secrets directly via CLI:
 
 ```bash
 pcc secrets set my-first-agent-secrets \
-  CARTESIA_API_KEY=your_cartesia_key \
+  LMNT_API_KEY=your_lmnt_key \
   OPENAI_API_KEY=your_openai_key
 ```
 
@@ -142,7 +142,7 @@ pcc deploy my-first-agent your-username/my-first-agent:0.1 --secrets my-first-ag
 > **Note**: If your repository is private, you'll need to add credentials:
 >
 > ```bash
-> # Create pull secret (you’ll be prompted for credentials)
+> # Create pull secret (you'll be prompted for credentials)
 > pcc secrets image-pull-secret pull-secret https://index.docker.io/v1/
 >
 > # Deploy with credentials
